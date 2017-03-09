@@ -8,6 +8,7 @@ class BankAccount
 
   def deposit_money(sum, date)
     @balance += sum
+    @log << [date, sum, 0, @balance]
   end
 
   def withdraw_money(sum, date)

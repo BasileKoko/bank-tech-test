@@ -26,4 +26,9 @@ describe BankAccount do
     expect{subject.withdraw_money(12, "10/03/2017")}.to raise_error "You do not have enough fund"
   end
 
+  it "should log a deposit" do
+    subject.deposit_money(10, "09/03/2017")
+    expect(subject.log).to eq [["09/03/2017", 10, 0, 10]]
+  end
+
 end
