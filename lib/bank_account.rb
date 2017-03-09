@@ -14,5 +14,6 @@ class BankAccount
   def withdraw_money(sum, date)
     raise "You do not have enough fund" if sum > @balance
     @balance -= sum
+    @log << [date, 0, sum, @balance]
   end
 end
