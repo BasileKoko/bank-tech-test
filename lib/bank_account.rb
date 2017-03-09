@@ -7,4 +7,7 @@ class BankAccount
 
   def deposit_money(sum, date)
   end
+
+  def withdraw_money(sum, date)
+  end
 end

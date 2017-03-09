@@ -5,4 +5,6 @@ describe BankAccount do
     expect(subject.balance).to eq 0
   end
   it {is_expected.to respond_to(:deposit_money).with(2)}
+  it {is_expected.to respond_to(:withdraw_money).with(2)}
+
 end
