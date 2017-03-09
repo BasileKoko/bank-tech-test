@@ -7,4 +7,9 @@ describe BankAccount do
   it {is_expected.to respond_to(:deposit_money).with(2)}
   it {is_expected.to respond_to(:withdraw_money).with(2)}
 
+  it "should increase balance when deposit is made" do
+    subject.deposit_money(10, "09/03/2017")
+    expect(subject.balance).to eq 10
+  end
+
 end

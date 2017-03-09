@@ -6,6 +6,7 @@ class BankAccount
   end
 
   def deposit_money(sum, date)
+    @balance += sum
   end
 
   def withdraw_money(sum, date)
