@@ -18,4 +18,9 @@ describe BankAccount do
     expect(subject.balance).to eq 2
   end
 
+  it "should raise an error if sum to withdraw is greater than balance" do
+    subject.deposit_money(10, "09/03/2017")
+    expect{subject.withdraw_money(12, "10/03/2017")}.to raise_error "You do not have enough fund"
+  end
+
 end
