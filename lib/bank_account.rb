@@ -8,12 +8,12 @@ class BankAccount
 
   def deposit_money(sum, date)
     @balance += sum
-    @log << [date, sum, 0, @balance]
+    @log << [date, sum, "--", @balance]
   end
 
   def withdraw_money(sum, date)
     raise "You do not have enough fund" if sum > @balance
     @balance -= sum
-    @log << [date, 0, sum, @balance]
+    @log << [date, "--", sum, @balance]
   end
 end
