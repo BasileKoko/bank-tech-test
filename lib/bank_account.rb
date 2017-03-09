@@ -10,5 +10,6 @@ class BankAccount
   end
 
   def withdraw_money(sum, date)
+    @balance -= sum
   end
 end

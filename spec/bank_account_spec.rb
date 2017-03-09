@@ -12,4 +12,10 @@ describe BankAccount do
     expect(subject.balance).to eq 10
   end
 
+  it "should decrease balance when withdraw is made" do
+    subject.deposit_money(10, "09/03/2017")
+    subject.withdraw_money(8, "10/03/2017")
+    expect(subject.balance).to eq 2
+  end
+
 end
