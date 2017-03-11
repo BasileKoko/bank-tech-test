@@ -1,6 +1,9 @@
 require 'bank_account'
 
 describe BankAccount do
+  before do
+  BankAccount.send(:public, *BankAccount.private_instance_methods)
+end
   it "should create new bank_account with balance 0" do
     expect(subject.balance).to eq 0
   end
@@ -28,12 +31,18 @@ describe BankAccount do
 
   it "should log a deposit" do
     subject.deposit_money(10, "09/03/2017")
-    expect(subject.log).to eq [["09/03/2017", 10, "--", 10]]
+    expect(subject.log).to eq [["09/03/2017", 10, "", 10]]
   end
   it "should log a withdraw" do
     subject.deposit_money(10, "09/03/2017")
     subject.withdraw_money(6, "10/03/2017")
-    expect(subject.log[1]).to eq ["10/03/2017", "--", 6, 4]
+    expect(subject.log[1]).to eq ["10/03/2017", "", 6, 4]
+  end
+
+  it "can print the bank_statement" do
+    subject.deposit_money(30)
+    subject.withdraw_money(13)
+    expect(subject.print_statment).to include("date||credit||debit||balance\n11/03/2017  ||30  ||  ||30\n11/03/2017  ||  ||13  ||17")
   end
 
 end
