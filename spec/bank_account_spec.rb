@@ -2,8 +2,8 @@ require 'bank_account'
 
 describe BankAccount do
   before do
-  BankAccount.send(:public, *BankAccount.private_instance_methods)
-end
+    BankAccount.send(:public, *BankAccount.private_instance_methods)
+  end
   it "should create new bank_account with balance 0" do
     expect(subject.balance).to eq 0
   end
