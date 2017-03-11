@@ -12,6 +12,8 @@ end
   end
   it {is_expected.to respond_to(:deposit_money).with(2)}
   it {is_expected.to respond_to(:withdraw_money).with(2)}
+  it {is_expected.to respond_to(:format_statement)}
+  it {is_expected.to respond_to(:print_statment)}
 
   it "should increase balance when deposit is made" do
     subject.deposit_money(10, "09/03/2017")

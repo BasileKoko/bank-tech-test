@@ -18,14 +18,18 @@ class BankAccount
   end
 
   def print_statment
-    statement_header_format = STATEMENT_HEADER.join("||")
-    log_format = log.map {|el| el.join("  ||")}.join("\n")
-    statement_header_format + "\n" + log_format
+    format_statement
   end
 
   private
     attr_reader :balance, :log
     DATE = (DateTime.now).strftime("%d/%m/%Y")
     STATEMENT_HEADER = ["date", "credit", "debit", "balance"]
+
+    def format_statement
+      statement_header_format = STATEMENT_HEADER.join("||")
+      log_format = log.map {|el| el.join("  ||")}.join("\n")
+      statement_header_format + "\n" + log_format
+    end
 
 end
